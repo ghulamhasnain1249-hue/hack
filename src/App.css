@@ -1,0 +1,155 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Glitch Effect on Title */
+.title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 
+    0 0 10px var(--neon-green-glow),
+    0 0 20px var(--neon-green-glow),
+    0 0 40px var(--neon-green);
+  margin-bottom: 0.5rem;
+  position: relative;
+  animation: pulse 2s infinite alternate;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--neon-green);
+  opacity: 0.8;
+  letter-spacing: 2px;
+  margin-bottom: 3rem;
+}
+
+/* Glassmorphism Card */
+.terminal-card {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: var(--neon-green);
+  box-shadow: 0 0 10px var(--neon-green);
+}
+
+.terminal-header {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #333;
+}
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.terminal-content {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.prompt {
+  color: var(--neon-green);
+  margin-right: 0.5rem;
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.15em solid var(--neon-green);
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+/* Action Button */
+.hack-button {
+  margin-top: 2.5rem;
+  padding: 1rem 2.5rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--dark-bg);
+  background: var(--neon-green);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px var(--neon-green-glow);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hack-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px var(--neon-green);
+  background: #fff;
+}
+
+.hack-button:active {
+  transform: translateY(1px);
+}
+
+/* Animations */
+@keyframes pulse {
+  0% { text-shadow: 0 0 10px var(--neon-green-glow), 0 0 20px var(--neon-green-glow), 0 0 40px var(--neon-green); }
+  100% { text-shadow: 0 0 15px var(--neon-green-glow), 0 0 30px var(--neon-green-glow), 0 0 50px var(--neon-green), 0 0 70px var(--neon-green); }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--neon-green); }
+}
+
+/* Status text after clicking */
+.status-text {
+  margin-top: 2rem;
+  color: #ff5f56;
+  font-weight: bold;
+  animation: fade-in 0.5s ease-in;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .title { font-size: 3rem; }
+  .terminal-card { padding: 1.5rem; }
+}
